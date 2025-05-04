@@ -1,7 +1,7 @@
 # Olist E-commerce Customer Satisfaction Analysis
 
 This project analyzes customer satisfaction using real-world data from the Brazilian e-commerce platform, Olist.  
-Through SQL-based data preparation and analysis, key insights are uncovered about delivery performance, product categories, and review trends.
+Through SQL-based data preparation and analysis, key insights about delivery performance, product categories, and review trends are uncovered.
 
 **About Olist:**  
 Olist is a Brazilian e-commerce platform that connects small and medium-sized businesses with major online marketplaces. By handling logistics, payments, and customer service support, Olist enables sellers to scale efficiently while offering buyers a wide selection of products through centralized storefronts.
@@ -112,7 +112,7 @@ Address import issues related to duplicate `review_id` values in the `olist_orde
 
 **Purpose:**  
 Allow full dataset import for analysis while acknowledging real-world data integrity issues.  
-(Note: In production, deduplication should occur prior to import.)
+(Note: In production, deduplication should occur before import.)
 
 ---
 
@@ -123,7 +123,7 @@ Verify that all tables were successfully created and populated.
 
 **Actions Taken:**  
 - Ran `SELECT COUNT(*)` to confirm row totals per table  
-- Ran `SELECT * LIMIT 10` to preview structure and values in each table
+- Ran `SELECT * LIMIT 10` to preview the structure and values in each table
 
 **Purpose:**  
 Validate that the import process worked and ensure all tables are ready for analysis.
@@ -133,7 +133,7 @@ Validate that the import process worked and ensure all tables are ready for anal
 ### Step 3: Join orders and reviews
 
 **Goal:**  
-Link customer orders with their review data to prepare for satisfaction analysis.
+Link customer orders with their review data to prepare for customer satisfaction analysis.
 
 **Actions Taken:**  
 - Performed an `INNER JOIN` between `olist_orders` and `olist_order_reviews` using `order_id`  
@@ -196,7 +196,7 @@ Determine how late deliveries affect customer satisfaction.
 Identify whether delivery delays have a measurable negative impact on review scores.
 
 **Result Summary:**  
-Late deliveries averaged a review score of **2.57**, while on-time deliveries averaged **4.29**.  
+Late deliveries averaged a review score of **2.55**, while on-time deliveries averaged **4.21**.  
 This confirms a strong negative correlation between delivery delays and customer satisfaction.
 
 ---
@@ -207,9 +207,9 @@ This confirms a strong negative correlation between delivery delays and customer
 Explore how late delivery rates change by month.
 
 **Actions Taken:**  
-- Extracted year-month from `order_purchase_timestamp`  
+- Extracted year-month from `order_purchase_timestamp` (for a discrete view)  
 - Calculated the percentage of late deliveries for each month  
-- Grouped by month and delivery flag
+- Grouped by month and delivery status
 
 **Purpose:**  
 Spot seasonal trends or operational inefficiencies tied to delivery performance.
@@ -310,11 +310,11 @@ The final dashboard, **Brazil E-Commerce Customer Satisfaction & Delivery Perfor
 - **Interactive map** of Brazil showing average review scores by seller state  
 - **Bar chart comparing on-time vs. late deliveries**, with dynamic tooltips summarizing review scores and delivery share  
 - **Pie chart** visualizing the proportion of on-time vs. late orders  
-- **Decomposition chart** of review scores based on delivery deviation (early, on time, or late), uncovering clear satisfaction patterns
+- **Decomposition chart** of review scores based on delivery deviation (early, as scheduled, or late), uncovering clear satisfaction patterns
 
 ### 🎯 Design Highlights:
 -Used **map-based filtering** to update KPIs and all supporting visualizations by state (except the bottom right visualization which is static)
--Applied **custom color schemes** using Tableau Public’s limited palette and hex values (#006400, soft greens, orange, dark gray text)
+-Applied **custom color schemes** using Tableau Public’s limited palette and hex values
 -Incorporated **sheet-specific shading** for visual segmentation
 -Limited dashboard to **one screen**, allowing focused storytelling without excess interactivity
 
@@ -325,13 +325,13 @@ The final dashboard, **Brazil E-Commerce Customer Satisfaction & Delivery Perfor
 ## Project Summary
 
 This project explored key drivers of customer satisfaction on the Olist platform using SQL-based analysis.  
-By joining and transforming multiple datasets, we identified how delivery timing, product categories, seller performance, and geographic patterns affect review scores.
+By joining and transforming multiple datasets, we identified how delivery timing, geographic patterns, product categories, and seller performance affect review scores.
 
 The analysis provides actionable insights for improving seller support, logistics performance, and overall marketplace experience.  
-This project also demonstrates end-to-end data preparation, business-oriented querying, and readiness for visualization through tools like Tableau.
+This project also demonstrates end-to-end data preparation, business-oriented querying, and readiness for visualization through tools like Tableau (Tableau Public in this case).
 
 ## Next Steps
 
--Expand the dashboard to include more advanced segmentation (e.g., repeat customers, order value)
+-Expand the dashboard to include more advanced segmentation (e.g., repeat customers, order value, etc.)
 -Apply predictive modeling to forecast satisfaction based on order conditions
 -Consider benchmarking Olist’s performance against industry standards or other marketplaces
