@@ -318,7 +318,7 @@ The final dashboard, **Brazil E-Commerce Customer Satisfaction & Delivery Perfor
 -Incorporated **sheet-specific shading** for visual segmentation
 -Limited dashboard to **one screen**, allowing focused storytelling without excess interactivity
 
-> 📍 View the interactive dashboard: [Tableau Public – Dylan Barrett](https://public.tableau.com/app/profile/dylan.barrett)
+> 📍 View the interactive dashboard: [Tableau Public – Dylan Barrett](https://public.tableau.com/app/profile/dylan.barrett1539)
 
 ---
 
